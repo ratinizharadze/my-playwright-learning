@@ -87,3 +87,17 @@ test('Empty Username validation', async ({ page }) => {
     await expect(page.getByText("Epic sadface: Username is required"),'error message is shown with text').toBeVisible();
 
 });
+
+
+
+test('logging in as locked_out_user should show the error', async ({ page }) => {
+    await page.goto("/");
+    await expect(page,'page url is https://www.saucedemo.com/').toHaveURL("https://www.saucedemo.com/");
+
+    await page.getByTestId("username").click();
+    await page.getByTestId("username").fill(lockedOutUser.username);
+    await page.getByTestId("password").click();
+    await page.getByTestId("password").fill(lockedOutUser.password);
+    await page.getByTestId("login-button").click(); 
+    await expect(page.getByText("Epic sadface: Sorry, this user has been locked out."), 'error message is shown with text').toBeVisible();
+});
