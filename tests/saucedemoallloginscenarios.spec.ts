@@ -21,21 +21,21 @@ test.describe('Go to login page', () => {
         await expect(page.locator('[data-test="error"]')).toHaveText('Epic sadface: Sorry, this user has been locked out.');
     });
     
-    // test('Login with problem user', async ({page}) => {
-    //    await page.getByTestId('username').fill(problemUser.username);
-    //    await page.getByTestId('password').fill(problemUser.password);
-    //    await page.getByTestId('login-button').click();
-    //   await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
-    //    await expect(page.getByTestId('inventory-item')).toHaveCount(6);
-    //    
-    //    const imageSrcs = await page.locator('.inventory_item_img').evaluateAll(
-    //    imgs => imgs.map(img => img.getAttribute('src'))
-    //    );
+    test('Login with problem user', async ({page}) => {
+        await page.getByTestId('username').fill(problemUser.username);
+        await page.getByTestId('password').fill(problemUser.password);
+        await page.getByTestId('login-button').click();
+        await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
+        await expect(page.getByTestId('inventory-item')).toHaveCount(6);
+        
+        const imageSrcs = await page.locator('.inventory_item_img').evaluateAll(
+        imgs => imgs.map(img => img.getAttribute('src'))
+        );
 
-    //    const uniqueSrcs = new Set(imageSrcs);
-    //    expect(uniqueSrcs.size).toBe(1);
-    //});
-    //});
+        const uniqueSrcs = new Set(imageSrcs);
+        expect(uniqueSrcs.size).toBe(1);
+    });
+    });
 
 //test('Login with performance glitch user', async ({page}) => {
 //    await page.getByTestId('username').fill(performanceGlitchUser.username);
