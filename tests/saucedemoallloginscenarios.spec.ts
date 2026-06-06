@@ -42,15 +42,8 @@ test.describe('Go to login page', () => {
 //    await page.getByTestId('password').fill(performanceGlitchUser.password);
 //    await page.getByTestId('login-button').click();
 //    await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
-//
-//    const startTime = Date.now();
-//    await expect(page.getByTestId('inventory-item')).toHaveCount(6);
-//    const endTime = Date.now();
-//    const loadTime = endTime - startTime;
-//    console.log(`Load time for performance glitch user: ${loadTime} ms`);
-//    expect(loadTime).toBeGreaterThan(5000);
-//});
 
+<<<<<<< HEAD
 //test('Login with error user', async ({page}) => {
 //    await page.getByTestId("username").fill(errorUser.username);
 //    await page.getByTestId("password").fill(errorUser.password);
@@ -62,3 +55,36 @@ test.describe('Go to login page', () => {
 //    const src = await errorImage.getAttribute('src');
 //    expect(src).toContain('sl-404.jpg');
 //});
+=======
+    const startTime = Date.now();
+    await expect(page.getByTestId('inventory-item')).toHaveCount(6);
+    const endTime = Date.now();
+    const loadTime = endTime - startTime;
+    console.log(`Load time for performance glitch user: ${loadTime} ms`);
+    expect(loadTime).toBeGreaterThan(5000);
+});
+
+test('Login with error user', async ({page}) => {
+    await page.getByTestId("username").fill(errorUser.username);
+    await page.getByTestId("password").fill(errorUser.password);
+    await page.getByTestId("login-button").click();
+    await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
+
+    const errorImage = page.getByTestId('error-image');
+    await expect(errorImage).toBeVisible();
+    const src = await errorImage.getAttribute('src');
+    expect(src).toContain('sl-404.jpg');
+});
+
+test('Login with visual user', async ({page}) => {
+    await page.getByTestId('username').fill(visualUser.username);
+    await page.getByTestId('password').fill(visualUser.password);
+    await page.getByTestId('login-button').click();
+    await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
+
+    const inventoryContainer = page.locator('.inventory_container');
+    await expect(inventoryContainer).toBeVisible();
+    const backgroundColor = await inventoryContainer.evaluate(el => getComputedStyle(el).backgroundColor);
+    expect(backgroundColor).toBe('rgb(255, 0, 0)');
+});
+>>>>>>> parent of 8d2fee0 (Updated TCs and verified all pass)
