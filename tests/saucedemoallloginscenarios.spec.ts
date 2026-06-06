@@ -62,15 +62,3 @@ test.describe('Go to login page', () => {
 //    const src = await errorImage.getAttribute('src');
 //    expect(src).toContain('sl-404.jpg');
 //});
-
-//test('Login with visual user', async ({page}) => {
-//    await page.getByTestId('username').fill(visualUser.username);
-//    await page.getByTestId('password').fill(visualUser.password);
-//    await page.getByTestId('login-button').click();
-//    await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
-//
-//    const inventoryContainer = page.locator('.inventory_container');
-//    await expect(inventoryContainer).toBeVisible();
-//    const backgroundColor = await inventoryContainer.evaluate(el => getComputedStyle(el).backgroundColor);
-//    expect(backgroundColor).toBe('rgb(255, 0, 0)');
-//});
