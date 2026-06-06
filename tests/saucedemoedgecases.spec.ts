@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { standardUser, lockedOutUser, problemUser, performanceGlitchUser, errorUser, visualUser } from "../saucedemoallscenariosdata";
+import { standardUser, lockedOutUser, problemUser, performanceGlitchUser, errorUser, visualUser } from "../test-data/saucedemoallscenariosdata";
 
 test.describe('Go to login page and login to Standard User', () => {
     test.beforeEach(async ({page}) => {
