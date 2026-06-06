@@ -17,16 +17,16 @@ test.describe("Login", () => {
 
     test("locked user sees error message", async ({page}) => {
         await loginPage.login(lockedOutUser.username, lockedOutUser.password);
-        await expect(loginPage.errorMessage).toContainText("Epic sadface: Sorry, this user has been locked out.")
+        await expect(loginPage.errorMessage).toHaveText("Epic sadface: Sorry, this user has been locked out.")
     })
 
     test("Wrong password shows error message", async ({page}) => {
         await loginPage.login(standardUser.username, "wrongpassword");
-        await expect(loginPage.errorMessage).toContainText("Epic sadface: Username and password do not match any user in this service")
+        await expect(loginPage.errorMessage).toHaveText("Epic sadface: Username and password do not match any user in this service")
     })
 
     test("Empty username shows validation error", async ({page}) => {
         await loginPage.login("", standardUser.password);
-        await expect(loginPage.errorMessage).toContainText("Epic sadface: Username is required")
+        await expect(loginPage.errorMessage).toHaveText("Epic sadface: Username is required")
     })
 });

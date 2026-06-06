@@ -1,5 +1,5 @@
 import { test } from "@playwright/test";
-import { first, second, formatPrice } from "../practiceweek2";
+import { first, second, formatPrice } from "../test-data/practiceweek2";
 
 test('test data is wired correctly', async () => {
     const { name, price, inStock } = first ;  // destructuring!

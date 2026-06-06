@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import {standardUser, lockedOutUser } from "../saucedemoallscenariosdata"
+import {standardUser, lockedOutUser } from "../test-data/saucedemoallscenariosdata"
 
 test.describe("go to login page", () => {
     test.beforeEach(async ({page}) => {

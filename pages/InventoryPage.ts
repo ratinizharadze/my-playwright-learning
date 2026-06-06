@@ -11,6 +11,7 @@ export class InventoryPage {
   readonly hamburgermenuButton: Locator;
   readonly removeItem: Locator;
   readonly itemname: Locator;
+  readonly inventoryitemPrice: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -23,6 +24,7 @@ export class InventoryPage {
     this.hamburgermenuButton = page.getByRole("button", { name: "Open Menu" });
     this.removeItem = page.getByRole("button", { name: "Remove" });
     this.itemname = page.getByTestId("inventory-item-name");
+    this.inventoryitemPrice = page.getByTestId("inventory-item-price");
     }
 
     async addItemToCart(itemName: string) {
