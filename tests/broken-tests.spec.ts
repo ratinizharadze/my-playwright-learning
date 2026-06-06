@@ -24,7 +24,7 @@ test("error message on wrong password", async ({ page }) => {
   await page.getByRole("button", { name: "Login" }).click();
 
   await expect(page.getByTestId("error")).toHaveText(
-    "Epic sadface: Username and password do not "   // ← is this the exact text?
+    "Epic sadface: Username and password do not match any user in this service"   // ← is this the exact text?
   );
 });
 
