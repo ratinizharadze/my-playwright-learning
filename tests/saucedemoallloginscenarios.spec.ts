@@ -43,6 +43,7 @@ test.describe('Go to login page', () => {
 //    await page.getByTestId('login-button').click();
 //    await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
 
+<<<<<<< HEAD
     const startTime = Date.now();
     await expect(page.getByTestId('inventory-item')).toHaveCount(6);
     const endTime = Date.now();
@@ -74,3 +75,16 @@ test('Login with visual user', async ({page}) => {
     const backgroundColor = await inventoryContainer.evaluate(el => getComputedStyle(el).backgroundColor);
     expect(backgroundColor).toBe('rgb(255, 0, 0)');
 });
+=======
+//test('Login with error user', async ({page}) => {
+//    await page.getByTestId("username").fill(errorUser.username);
+//    await page.getByTestId("password").fill(errorUser.password);
+//    await page.getByTestId("login-button").click();
+//    await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
+//
+//    const errorImage = page.getByTestId('error-image');
+//    await expect(errorImage).toBeVisible();
+//    const src = await errorImage.getAttribute('src');
+//    expect(src).toContain('sl-404.jpg');
+//});
+>>>>>>> parent of 3134bd5 (changes for command npx fix)
